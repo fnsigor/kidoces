@@ -8,3 +8,12 @@
     gap: 5rem;
     width: fit-content;
 }
+
+
+
+@media (max-width: 811px) {
+    .page ul{
+        justify-content: center;
+    }
+
+}
