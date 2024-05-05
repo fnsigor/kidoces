@@ -1,0 +1,52 @@
+
+.page header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+    margin-bottom: 8rem;
+}
+
+.page header img {
+    max-width: 35rem;
+    height: auto;
+    border-radius: 50%;
+}
+
+.page header p {
+    font-size: 1.8rem;
+}
+
+.page header > div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    max-width: 50rem;
+}
+
+
+.page section header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.page section header h6{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.page section header a{
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.page ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+    width: fit-content;
+}
+
+
+

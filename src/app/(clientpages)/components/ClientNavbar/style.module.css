@@ -1,0 +1,39 @@
+.component {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--rosa-medium);
+    padding: 1.6rem;
+    margin-bottom: 8rem;
+}
+
+.component h5 {
+    font-size: 3rem;
+}
+
+.component ul{
+    display: flex;
+    gap: 1.2rem;
+}
+
+.component a{
+    font-size: 1.8rem;
+    color: #000;
+}
+
+.component div{
+    display: flex;
+    gap: .8rem;
+}
+
+.component div input, .component div button{
+    border: none;
+}
+
+.component div input{
+    font-size: 1.6rem;
+    padding: .4rem;
+    width: 200px;
+}
+
