@@ -43,7 +43,7 @@ export default async function Home() {
                     <h6>últimos produto anunciados</h6>
                     <Link href="/products">Ver mais</Link>
                 </header>
-                <div id="listContainer">
+                <div>
                     <ul>
                         {products.data?.map((produto, i) => (
                             <li key={i + produto.name}>
