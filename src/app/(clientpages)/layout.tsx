@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ClientNavbar from "./components/ClientNavbar";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
     title: "KI Doces",
@@ -14,7 +15,7 @@ export default function RootLayout({
     return (
         <>
             <ClientNavbar />
-            {children}
+            <Suspense>{children}</Suspense>
         </>
     );
 }
