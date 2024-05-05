@@ -1,5 +1,4 @@
-
-.page header{
+.page header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,41 +16,53 @@
     font-size: 1.8rem;
 }
 
-.page header > div{
+.page header > div {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
     max-width: 50rem;
 }
 
-
-.page section header{
+.page section header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.page section header h6{
+.page section header h6 {
     font-size: 2rem;
     font-weight: 400;
 }
 
-.page section header a{
+.page section header a {
     font-size: 1.6rem;
     color: #000;
 }
 
-.page ul{
+.page ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8rem;
     width: 100%;
 }
 
-.page section > div{
+.page section > div {
     width: fit-content;
     margin: 0 auto;
 }
 
+@media (max-width: 811px) {
+    .page header {
+        flex-direction: column;
+        gap: 3rem;
+    }
 
+    .page header img {
+        max-width: 25rem;
+    }
 
+    .page ul{
+        justify-content: center;
+    }
+
+}

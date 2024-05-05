@@ -30,6 +30,9 @@
 .component div input, .component div button{
     border: none;
 }
+.component div button{
+    padding: .4rem;
+}
 
 .component div input{
     font-size: 1.6rem;
@@ -37,3 +40,16 @@
     width: 200px;
 }
 
+
+
+@media (max-width: 811px) {
+
+    .component{
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .component ul{
+        display: none;
+    }
+}
