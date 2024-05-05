@@ -1,46 +1,40 @@
+'use client'
+
 import React from "react";
 import css from "./page.module.css";
 import ProductCard from "../components/ProductCard";
+import { ServiceProduct } from "@/app/services/ServiceProduct";
+import { useSearchParams } from "next/navigation";
 
-const products = [
-    {
-        name: "Nome produto",
-        value: 2.5,
-        url: "https://images.unsplash.com/photo-1582493255270-b3844e2a63c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJ1ZmElMjBkZSUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-        name: "Nome produto",
-        value: 2.5,
-        url: "https://images.unsplash.com/photo-1582493255270-b3844e2a63c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJ1ZmElMjBkZSUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-        name: "Nome produto",
-        value: 2.5,
-        url: "https://images.unsplash.com/photo-1582493255270-b3844e2a63c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJ1ZmElMjBkZSUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-        name: "Nome produto",
-        value: 2.5,
-        url: "https://images.unsplash.com/photo-1582493255270-b3844e2a63c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJ1ZmElMjBkZSUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    },
-    {
-        name: "Nome produto",
-        value: 2.5,
-        url: "https://images.unsplash.com/photo-1582493255270-b3844e2a63c8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dHJ1ZmElMjBkZSUyMGNob2NvbGF0ZXxlbnwwfHwwfHx8MA%3D%3D",
-    },
-];
+const Products = async () => {
 
-const Products = () => {
+
+    const searchParams = useSearchParams()
+
+    const products = (await new ServiceProduct().getAllProducts(undefined, searchParams.get('productName') as any)) as {
+        success: boolean;
+        data?: {
+            id: string;
+            name: string;
+            value: number;
+            imageUrl: string;
+            seller: {
+                whatsapp: string;
+            };
+        }[];
+    };
+
     return (
         <main className={css.page}>
             <h1>Todos os produtos</h1>
             <ul>
-                {products.map((produto, i) => (
+                {products.data?.map((produto, i) => (
                     <li key={i + produto.name}>
                         <ProductCard
                             name={produto.name}
-                            url={produto.url}
+                            url={produto.imageUrl}
                             value={produto.value}
+                            whatsapp={produto.seller.whatsapp}
                         />
                     </li>
                 ))}

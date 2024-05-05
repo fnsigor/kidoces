@@ -7,7 +7,7 @@ import { ServiceProduct } from "../services/ServiceProduct";
 
 export default async function Home() {
     
-    const products = await new ServiceProduct().getAllProducts(4) as {
+    const products = await new ServiceProduct().getAllProducts(5) as {
         success: boolean
         data?: {
             id: string
@@ -19,9 +19,7 @@ export default async function Home() {
             }
         }[]
     }
-
-    console.log(products)
-
+    
     return (
         <main className={style.page}>
             <header>
@@ -45,7 +43,7 @@ export default async function Home() {
                     <h6>últimos produto anunciados</h6>
                     <Link href="/products">Ver mais</Link>
                 </header>
-                <div>
+                <div id="listContainer">
                     <ul>
                         {products.data?.map((produto, i) => (
                             <li key={i + produto.name}>

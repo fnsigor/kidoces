@@ -44,8 +44,13 @@
 .page ul{
     display: flex;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 8rem;
+    width: 100%;
+}
+
+.page section > div{
     width: fit-content;
+    margin: 0 auto;
 }
 
 

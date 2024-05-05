@@ -1,11 +1,21 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
-import style from './style.module.css'
+import React, { useState } from "react";
+import style from "./style.module.css";
+import { useRouter } from "next/navigation";
 
 const ClientNavbar = () => {
+
+    const [productName, setProductName] = useState("");
+
+    const router = useRouter();
+
     return (
         <nav className={style.component}>
-            <h5>Ki Doces</h5>
+            <Link href={"/"}>
+                <h5>Ki Doces</h5>
+            </Link>
             <ul>
                 <li>
                     <Link href={"/"}>Home</Link>
@@ -15,8 +25,16 @@ const ClientNavbar = () => {
                 </li>
             </ul>
             <div>
-                <input type="text" />
-                <button>Pesquisar</button>
+                <input
+                    type="text"
+                    value={productName}
+                    onChange={(e) => setProductName(e.target.value)}
+                />
+                <button
+                onClick={() => {
+                    router.push(`/products?productName=${productName}`)
+                }}
+                >Pesquisar</button>
             </div>
         </nav>
     );
